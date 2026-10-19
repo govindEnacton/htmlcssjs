@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Green Leaf Nursery - indoor plants, garden flowers, pots and care supplies. Family-run since 2016.">
+  <title>Green Leaf Nursery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Header / Nav ===== -->
+  <header>
+    <nav class="nav">
+      <a href="#home" class="logo">🌿 Green Leaf Nursery</a>
+      <ul class="nav-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#menu">Plants</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Open menu">&#9776;</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="home">
+      <div class="hero-text">
+        <h1>Grow Something Beautiful</h1>
+        <p>Indoor plants, garden flowers and everything you need to make your space greener.</p>
+        <a href="#menu" class="btn">See Our Plants</a>
+        <a href="#contact" class="btn btn-secondary">Visit Us</a>
+        <div class="hero-info-bar">
+          <span>🕒 Open 8am – 6pm daily</span>
+          <span>📍 456 Garden Lane, Greenfield</span>
+        </div>
+      </div>
+      <div class="hero-feature">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Monstera_deliciosa2.jpg/1280px-Monstera_deliciosa2.jpg" alt="Monstera deliciosa houseplant">
+        <p class="feature-label">Today's pick: Monstera Deliciosa</p>
+      </div>
+    </section>
+
+    <!-- ===== Carousel ===== -->
+    <section class="carousel">
+      <h2>Inside Green Leaf Nursery</h2>
+      <div class="carousel-box">
+        <div class="slides">
+          <img class="slide active" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Botanical_Garden_V.L._Komarov_Botanical_Institute.jpg/1280px-Botanical_Garden_V.L._Komarov_Botanical_Institute.jpg" alt="Greenhouse full of plants">
+          <img class="slide" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Cutchogue_-_Oregon_Road_-_Plant_Nursery.jpg/1280px-Cutchogue_-_Oregon_Road_-_Plant_Nursery.jpg" alt="Plants on display at a plant nursery">
+          <img class="slide" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/MetalwateringcansDec08.jpg/1280px-MetalwateringcansDec08.jpg" alt="Metal watering cans">
+        </div>
+        <button class="carousel-btn prev" aria-label="Previous slide">&#10094;</button>
+        <button class="carousel-btn next" aria-label="Next slide">&#10095;</button>
+        <div class="dots">
+          <button class="dot active" aria-label="Slide 1"></button>
+          <button class="dot" aria-label="Slide 2"></button>
+          <button class="dot" aria-label="Slide 3"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Menu ===== -->
+    <section class="menu" id="menu">
+      <h2>Our Plants &amp; Supplies</h2>
+      <p class="hint">Click <strong>Enquire</strong> on a card to see its full description.</p>
+
+      <div class="menu-tabs">
+        <button class="menu-tab active" data-filter="all">All Items</button>
+        <button class="menu-tab" data-filter="indoor">Indoor Plants</button>
+        <button class="menu-tab" data-filter="outdoor">Outdoor &amp; Flowering</button>
+        <button class="menu-tab" data-filter="care">Garden Care</button>
+      </div>
+
+      <div class="menu-grid"><!-- cards are rendered from the menuData array in script.js --></div>
+    </section>
+
+    <!-- ===== Gallery ===== -->
+    <section class="gallery" id="gallery">
+      <h2>Gallery</h2>
+      <p class="hint">Click a photo to view it full size.</p>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Orkide_i_finstua_mot_vest.jpg/1280px-Orkide_i_finstua_mot_vest.jpg" alt="Orchids growing indoors" class="gallery-img">
+        </div>
+        <div class="gallery-item">
+          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Rosa_rubiginosa_1.jpg/1280px-Rosa_rubiginosa_1.jpg" alt="Pink rose in bloom" class="gallery-img">
+        </div>
+        <div class="gallery-item">
+          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Split_Aloe.jpg/1280px-Split_Aloe.jpg" alt="Aloe succulent" class="gallery-img">
+        </div>
+        <div class="gallery-item">
+          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Almondsbury.garden.centre.arp.jpg/1280px-Almondsbury.garden.centre.arp.jpg" alt="Inside a garden centre" class="gallery-img">
+        </div>
+        <div class="gallery-item">
+          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/%22Meillandine%22_Rose_in_clay_pot.jpg/1280px-%22Meillandine%22_Rose_in_clay_pot.jpg" alt="Rose in a clay pot" class="gallery-img">
+        </div>
+        <div class="gallery-item">
+          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Flower_garden%2C_Botanic_Gardens%2C_Churchtown_2.JPG/1280px-Flower_garden%2C_Botanic_Gardens%2C_Churchtown_2.JPG" alt="Flower garden display" class="gallery-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Lightbox (hidden until a gallery image is clicked) ===== -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close" aria-label="Close">&times;</button>
+      <button class="lightbox-btn lightbox-prev" aria-label="Previous image">&#10094;</button>
+      <img class="lightbox-img" src="" alt="Full size photo">
+      <button class="lightbox-btn lightbox-next" aria-label="Next image">&#10095;</button>
+    </div>
+
+    <!-- ===== Testimonials ===== -->
+    <section class="testimonials" id="testimonials">
+      <h2>What Our Customers Say</h2>
+      <div class="testi-box">
+        <div class="testi-track"><!-- cards are rendered from the testiData array in script.js --></div>
+      </div>
+      <div class="testi-controls">
+        <button class="testi-btn testi-prev" aria-label="Previous review">&larr;</button>
+        <button class="testi-btn testi-next" aria-label="Next review">&rarr;</button>
+      </div>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section class="about" id="about">
+      <h2>About Green Leaf</h2>
+      <div class="about-wrap">
+        <div class="about-img">
+          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Botanical_Garden_V.L._Komarov_Botanical_Institute.jpg/1280px-Botanical_Garden_V.L._Komarov_Botanical_Institute.jpg" alt="Green Leaf Nursery greenhouse">
+        </div>
+        <div class="about-text">
+          <p>Green Leaf began in 2016 as a small family nursery with one greenhouse and a simple idea: make it easy for anyone to grow plants at home. Today we grow and source over 120 varieties of indoor and outdoor plants, all raised locally.</p>
+          <p>On every visit, our team shares honest advice on light, watering and soil - so your plants keep growing long after you take them home.</p>
+          <div class="stats-grid">
+            <div class="stat-item"><h3>9+</h3><p>Years Growing</p></div>
+            <div class="stat-item"><h3>120+</h3><p>Plant Varieties</p></div>
+            <div class="stat-item"><h3>5k+</h3><p>Happy Gardeners</p></div>
+            <div class="stat-item"><h3>4.8 ★</h3><p>Google Rating</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact + Map ===== -->
+    <section class="contact" id="contact">
+      <h2>Visit / Contact Us</h2>
+      <div class="contact-wrap">
+
+        <form id="contact-form" novalidate>
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Your name">
+          <p class="error" id="name-error"></p>
+
+          <label for="email">Email</label>
+          <input type="text" id="email" placeholder="you@example.com">
+          <p class="error" id="email-error"></p>
+
+          <label for="message">Message</label>
+          <textarea id="message" rows="4" placeholder="Ask about a plant or delivery..."></textarea>
+          <p class="error" id="message-error"></p>
+
+          <button type="submit" class="btn">Send Message</button>
+          <p class="success" id="form-success"></p>
+        </form>
+
+        <div class="map">
+          <iframe
+            title="Green Leaf Nursery location"
+            src="https://www.google.com/maps?q=plant+nursery+new+york&output=embed"
+            loading="lazy"></iframe>
+          <div class="contact-details">
+            <div class="contact-detail"><span>📍</span><div><strong>Location</strong>456 Garden Lane, Greenfield</div></div>
+            <div class="contact-detail"><span>⏰</span><div><strong>Opening Hours</strong>Mon–Fri 8am–6pm · Sat–Sun 9am–5pm</div></div>
+            <div class="contact-detail"><span>📞</span><div><strong>Phone &amp; Email</strong>+1 555 0142 · hello@greenleaf.example</div></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== FAQ (details/summary needs no JavaScript) ===== -->
+    <section class="faq" id="faq">
+      <h2>Frequently Asked Questions</h2>
+
+      <details>
+        <summary>Do you offer delivery?</summary>
+        <p>Yes, we deliver plants within 10 km of the shop for a small fee.</p>
+      </details>
+      <details>
+        <summary>Do you have low-maintenance plants?</summary>
+        <p>Yes, snake plants, pothos and succulents are great for beginners.</p>
+      </details>
+      <details>
+        <summary>Can you help me choose the right plants?</summary>
+        <p>Absolutely, our staff will match plants to your light and space.</p>
+      </details>
+      <details>
+        <summary>Do you sell pots and soil?</summary>
+        <p>Yes, we stock pots, potting soil and fertiliser for every kind of plant.</p>
+      </details>
+    </section>
+  </main>
+
+  <!-- ===== Enquiry Modal (opens from the Enquire buttons) ===== -->
+  <div class="order-modal" id="order-modal">
+    <div class="order-box">
+      <button class="order-close" aria-label="Close">&times;</button>
+      <img class="order-img" src="" alt="Item photo">
+      <div class="order-body">
+        <h3 id="order-title">Item Name</h3>
+        <p class="price" id="order-price">$0</p>
+        <p class="order-desc" id="order-desc">Description</p>
+        <button type="button" class="btn" id="order-confirm">Send Enquiry</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Toast Notification ===== -->
+  <div class="toast" id="toast">🌿 <span id="toast-msg"></span></div>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <p class="footer-logo">🌿 Green Leaf Nursery</p>
+        <p>Family-run nursery growing indoor and outdoor plants since 2016.</p>
+        <p class="social-links">
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">X</a>
+        </p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#menu">Plants</a>
+          <a href="#gallery">Gallery</a>
+        </div>
+      </div>
+      <div>
+        <h4>Information</h4>
+        <div class="footer-links">
+          <a href="#testimonials">Reviews</a>
+          <a href="#about">About</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+      <div class="footer-news">
+        <h4>Newsletter</h4>
+        <p>Plant care tips and seasonal offers, once a month.</p>
+        <form id="newsletter-form" novalidate>
+          <input type="text" id="newsletter-email" placeholder="Your email address" aria-label="Email address for newsletter">
+          <button type="submit" class="btn btn-sm">Join</button>
+        </form>
+        <p class="success" id="newsletter-msg"></p>
+      </div>
+    </div>
+    <p class="footer-bottom">&copy; 2026 Green Leaf Nursery</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
