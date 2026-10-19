@@ -1,34 +1,34 @@
-/* ===== Colour palette =====
-   All colours are defined once here. Change a value below and the whole
-   site updates. Shades are numbered light (50) to dark (900). */
 :root {
-  --green-50: #f7fbf4;    /* page background */
-  --green-100: #e8f3e4;   /* pale green blocks, badges */
-  --green-200: #dcedd8;   /* borders, image placeholder */
-  --green-300: #9ec98a;   /* accents: nav hover, active dot */
-  --green-400: #c8dcc3;   /* form input border */
-  --green-500: #4c8b52;   /* hover, prices */
-  --green-700: #35603c;   /* headings, buttons */
-  --green-900: #2b4229;   /* header, footer, main text */
+  --green-50: #f7fbf4;    
+  --green-100: #e8f3e4;   
+  --green-200: #dcedd8;  
+  --green-300: #9ec98a; 
+  --green-400: #c8dcc3;   
+  --green-500: #4c8b52;   
+  --green-700: #35603c;   
+  --green-900: #2b4229;   
 
   --white: #ffffff;
   --text-body: #4a5f4a;
   --text-muted: #7b8f7a;
   --footer-text: #c9dfc0;
-  --gold: #d9a066;        /* rating stars */
+  --gold: #d9a066;        
   --error: #b03a2e;
-  --error-light: #ffb3a7; /* error text on the dark footer */
+  --error-light: #ffb3a7; 
   --success: #2e7d32;
 
-  /* Same colours as red/green/blue values, for rgba() transparency */
   --green-100-rgb: 232, 243, 228;
   --green-500-rgb: 76, 139, 82;
   --green-700-rgb: 53, 96, 60;
   --green-900-rgb: 43, 66, 41;
   --white-rgb: 255, 255, 255;
-  --overlay-rgb: 20, 32, 22; /* dark backdrop of lightbox + modal */
+  --overlay-rgb: 20, 32, 22; 
 }
 
+
+html {
+  scroll-behavior: smooth;
+}
 /* ===== Base ===== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
