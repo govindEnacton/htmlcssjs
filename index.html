@@ -83,26 +83,7 @@
     <section class="gallery" id="gallery">
       <h2>Gallery</h2>
       <p class="hint">Click a photo to view it full size.</p>
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Orkide_i_finstua_mot_vest.jpg/1280px-Orkide_i_finstua_mot_vest.jpg" alt="Orchids growing indoors" class="gallery-img">
-        </div>
-        <div class="gallery-item">
-          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Rosa_rubiginosa_1.jpg/1280px-Rosa_rubiginosa_1.jpg" alt="Pink rose in bloom" class="gallery-img">
-        </div>
-        <div class="gallery-item">
-          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Split_Aloe.jpg/1280px-Split_Aloe.jpg" alt="Aloe succulent" class="gallery-img">
-        </div>
-        <div class="gallery-item">
-          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Almondsbury.garden.centre.arp.jpg/1280px-Almondsbury.garden.centre.arp.jpg" alt="Inside a garden centre" class="gallery-img">
-        </div>
-        <div class="gallery-item">
-          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/%22Meillandine%22_Rose_in_clay_pot.jpg/1280px-%22Meillandine%22_Rose_in_clay_pot.jpg" alt="Rose in a clay pot" class="gallery-img">
-        </div>
-        <div class="gallery-item">
-          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Flower_garden%2C_Botanic_Gardens%2C_Churchtown_2.JPG/1280px-Flower_garden%2C_Botanic_Gardens%2C_Churchtown_2.JPG" alt="Flower garden display" class="gallery-img">
-        </div>
-      </div>
+      <div class="gallery-grid"><!-- photos are rendered from the galleryData array in script.js --></div>
     </section>
 
     <!-- ===== Lightbox (hidden until a gallery image is clicked) ===== -->
@@ -185,23 +166,7 @@
     <!-- ===== FAQ (details/summary needs no JavaScript) ===== -->
     <section class="faq" id="faq">
       <h2>Frequently Asked Questions</h2>
-
-      <details>
-        <summary>Do you offer delivery?</summary>
-        <p>Yes, we deliver plants within 10 km of the shop for a small fee.</p>
-      </details>
-      <details>
-        <summary>Do you have low-maintenance plants?</summary>
-        <p>Yes, snake plants, pothos and succulents are great for beginners.</p>
-      </details>
-      <details>
-        <summary>Can you help me choose the right plants?</summary>
-        <p>Absolutely, our staff will match plants to your light and space.</p>
-      </details>
-      <details>
-        <summary>Do you sell pots and soil?</summary>
-        <p>Yes, we stock pots, potting soil and fertiliser for every kind of plant.</p>
-      </details>
+      <div class="faq-list"><!-- questions are rendered from the faqData array in script.js --></div>
     </section>
   </main>
 

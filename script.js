@@ -58,7 +58,52 @@ for (let i = 0; i < dots.length; i++) {
 
 startAutoPlay();
 
-// 2. GALLERY LIGHTBOX
+// 2. GALLERY - the data lives here in an array, the page renders it
+let galleryData = [
+  {
+    image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Orkide_i_finstua_mot_vest.jpg/1280px-Orkide_i_finstua_mot_vest.jpg",
+    alt: "Orchids growing indoors"
+  },
+  {
+    image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Rosa_rubiginosa_1.jpg/1280px-Rosa_rubiginosa_1.jpg",
+    alt: "Pink rose in bloom"
+  },
+  {
+    image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Split_Aloe.jpg/1280px-Split_Aloe.jpg",
+    alt: "Aloe succulent"
+  },
+  {
+    image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Almondsbury.garden.centre.arp.jpg/1280px-Almondsbury.garden.centre.arp.jpg",
+    alt: "Inside a garden centre"
+  },
+  {
+    image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/%22Meillandine%22_Rose_in_clay_pot.jpg/1280px-%22Meillandine%22_Rose_in_clay_pot.jpg",
+    alt: "Rose in a clay pot"
+  },
+  {
+    image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Flower_garden%2C_Botanic_Gardens%2C_Churchtown_2.JPG/1280px-Flower_garden%2C_Botanic_Gardens%2C_Churchtown_2.JPG",
+    alt: "Flower garden display"
+  }
+];
+
+let galleryGrid = document.querySelector(".gallery-grid");
+
+// Builds the gallery photos from the array above
+function renderGallery(items) {
+  let html = "";
+
+  for (let i = 0; i < items.length; i++) {
+    html += '<div class="gallery-item">' +
+              '<img src="' + items[i].image + '" alt="' + items[i].alt + '" class="gallery-img">' +
+            '</div>';
+  }
+
+  galleryGrid.innerHTML = html;
+}
+
+renderGallery(galleryData);
+
+// 3. GALLERY LIGHTBOX
 let galleryImages = document.querySelectorAll(".gallery-img");
 let lightbox = document.getElementById("lightbox");
 let lightboxImg = document.querySelector(".lightbox-img");
@@ -109,7 +154,7 @@ document.addEventListener("keydown", function (event) {
   if (event.key === "ArrowLeft") changeLightbox(-1);
 });
 
-// 3. CONTACT FORM VALIDATION (mock - nothing is sent)
+// 4. CONTACT FORM VALIDATION (mock - nothing is sent)
 function validateEmail(email) {
   // Basic email shape check: something@something.something
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -156,7 +201,7 @@ form.addEventListener("submit", function (event) {
   }
 });
 
-// 4. HAMBURGER MENU (mobile nav)
+// 5. HAMBURGER MENU (mobile nav)
 let hamburger = document.querySelector(".hamburger");
 let navLinks = document.querySelector(".nav-links");
 
@@ -169,7 +214,7 @@ navLinks.addEventListener("click", function (event) {
   if (event.target.tagName === "A") navLinks.classList.remove("open");
 });
 
-// 5. SCROLL SPY - highlight the nav link of the section in view
+// 6. SCROLL SPY - highlight the nav link of the section in view
 let sections = document.querySelectorAll("section[id]");
 let links = document.querySelectorAll(".nav-links a");
 
@@ -187,7 +232,7 @@ window.addEventListener("scroll", function () {
   }
 });
 
-// 6. MENU - the data lives here in an array, the page renders it
+// 7. MENU - the data lives here in an array, the page renders it
 let menuData = [
   {
     name: "Monstera Deliciosa",
@@ -317,7 +362,7 @@ for (let i = 0; i < tabs.length; i++) {
   });
 }
 
-// 7. TESTIMONIALS - data array + continuous slider
+// 8. TESTIMONIALS - data array + continuous slider
 let testiData = [
   {
     quote: "My monstera arrived healthy and even bigger than in the photos. The staff told me exactly how to water it.",
@@ -376,6 +421,7 @@ for (let c = 0; c < testiTotal; c++) {
 
 let testiIndex = 0;
 let testiTimer;
+let testiMoving = false; // true while a slide animation is running
 
 function moveTestimonials() {
   testiTrack.style.transform = "translateX(-" + testiIndex * 100 + "%)";
@@ -389,16 +435,19 @@ function snapTestimonials() {
 }
 
 function animateTestimonials() {
+  testiMoving = true;
   testiTrack.style.transition = "transform 0.5s ease";
   moveTestimonials();
 }
 
 function nextTestimonial() {
+  if (testiMoving) return; // ignore clicks until the current slide settles
   testiIndex = testiIndex + 1;
   animateTestimonials();
 }
 
 function prevTestimonial() {
+  if (testiMoving) return;
   if (testiIndex === 0) {
     testiIndex = testiTotal; // last clone = same picture as the first card
     snapTestimonials();
@@ -407,8 +456,10 @@ function prevTestimonial() {
   animateTestimonials();
 }
 
-// When we slide onto a copy, quietly jump back to the matching real card
+// When the slide finishes: unlock, and quietly jump back to the matching real card
 testiTrack.addEventListener("transitionend", function () {
+  testiMoving = false;
+
   if (testiIndex >= testiTotal) {
     testiIndex = testiIndex - testiTotal;
     snapTestimonials();
@@ -444,7 +495,57 @@ testiBox.addEventListener("mouseleave", function () {
 
 startTestiAuto();
 
-// 8. ENQUIRE MODAL + TOAST (mock - nothing is sent)
+// 9. FAQ - the data lives here in an array, the page renders it
+let faqData = [
+  {
+    question: "Do you offer delivery?",
+    answer: "Yes, we deliver plants within 10 km of the shop for a small fee."
+  },
+  {
+    question: "Do you have low-maintenance plants?",
+    answer: "Yes, snake plants, pothos and succulents are great for beginners."
+  },
+  {
+    question: "Can you help me choose the right plants?",
+    answer: "Absolutely, our staff will match plants to your light and space."
+  },
+  {
+    question: "Do you sell pots and soil?",
+    answer: "Yes, we stock pots, potting soil and fertiliser for every kind of plant."
+  }
+];
+
+let faqList = document.querySelector(".faq-list");
+
+// Builds the questions from the array above
+function renderFaq(items) {
+  let html = "";
+
+  for (let i = 0; i < items.length; i++) {
+    html += '<details>' +
+              '<summary>' + items[i].question + '</summary>' +
+              '<p>' + items[i].answer + '</p>' +
+            '</details>';
+  }
+
+  faqList.innerHTML = html;
+}
+
+renderFaq(faqData);
+
+// Only one answer open at a time: opening one closes the others
+faqList.addEventListener("click", function (event) {
+  if (event.target.tagName !== "SUMMARY") return;
+
+  let opened = event.target.parentElement;
+  let allItems = faqList.querySelectorAll("details");
+
+  for (let i = 0; i < allItems.length; i++) {
+    if (allItems[i] !== opened) allItems[i].removeAttribute("open");
+  }
+});
+
+// 10. ENQUIRE MODAL + TOAST (mock - nothing is sent)
 let orderModal = document.getElementById("order-modal");
 let orderImg = document.querySelector(".order-img");
 let orderTitle = document.getElementById("order-title");
@@ -500,7 +601,7 @@ document.getElementById("order-confirm").addEventListener("click", function () {
   showToast("Enquiry sent for " + activeItemName + "! We will reply by email.");
 });
 
-// 9. NEWSLETTER FORM (mock - nothing is sent)
+// 11. NEWSLETTER FORM (mock - nothing is sent)
 document.getElementById("newsletter-form").addEventListener("submit", function (event) {
   event.preventDefault();
 
